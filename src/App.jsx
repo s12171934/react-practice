@@ -1,45 +1,46 @@
+import { useState } from "react";
+import InputSpec from "./components/InputSpec";
+import ResultTable from "./components/ResultTable";
+
+const USER_INPUT = {
+  'initialInvestment': 0,
+  'annualInvestment': 0,
+  'expectedReturn': 0,
+  'duration': 0,
+};
+
 function App() {
+  const [userInput, setUserinput] = useState(USER_INPUT);
+
+  function HandleUserInput(label, value) {
+    setUserinput((preUserInput) => {
+      return {
+        ...preUserInput,
+        [label]: value,
+      };
+    });
+  }
+
   return (
     <>
       <div id="user-input">
         <div className="input-group">
-          <div>
-            <label>1111</label>
-            <input type="number" />
-          </div>
-          <div>
-            <label>1111</label>
-            <input type="number" />
-          </div>
+          <InputSpec
+            label="initialInvestment"
+            onChangeNumber={HandleUserInput}
+          />
+          <InputSpec
+            label="annualInvestment"
+            onChangeNumber={HandleUserInput}
+          />
         </div>
         <br />
         <div className="input-group">
-          <div>
-            <label>1111</label>
-            <input type="number" />
-          </div>
-          <div>
-            <label>1111</label>
-            <input type="number" />
-          </div>
+          <InputSpec label="expectedReturn" onChangeNumber={HandleUserInput} />
+          <InputSpec label="duration" onChangeNumber={HandleUserInput} />
         </div>
       </div>
-      <table id="result">
-        <thead>
-          <th>1</th>
-          <th>1</th>
-          <th>1</th>
-          <th>1</th>
-          <th>1</th>
-        </thead>
-        <tbody>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-        </tbody>
-      </table>
+      <ResultTable userInput={userInput}/>
     </>
   );
 }
