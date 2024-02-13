@@ -3,10 +3,10 @@ import InputSpec from "./components/InputSpec";
 import ResultTable from "./components/ResultTable";
 
 const USER_INPUT = {
-  'initialInvestment': 0,
-  'annualInvestment': 0,
-  'expectedReturn': 0,
-  'duration': 0,
+  initialInvestment: 0,
+  annualInvestment: 0,
+  expectedReturn: 0,
+  duration: 0,
 };
 
 function App() {
@@ -40,7 +40,7 @@ function App() {
           <InputSpec label="duration" onChangeNumber={HandleUserInput} />
         </div>
       </div>
-      <ResultTable userInput={userInput}/>
+      <ResultTable userInput={userInput} />
     </>
   );
 }

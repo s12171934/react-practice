@@ -5,7 +5,7 @@ export default function InputSpec({ label, onChangeNumber }) {
 
   return (
     <div>
-      <label>{ label }</label>
+      <label>{label}</label>
       <input type="number" onChange={handleChange} />
     </div>
   );
